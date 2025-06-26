@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'signup.dart'; // <-- PENYEBAB ERROR: BARIS INI HILANG. SEKARANG SUDAH DITAMBAHKAN.
 
 class SignInScreen extends StatefulWidget {
   const SignInScreen({super.key});
@@ -40,7 +41,6 @@ class _SignInScreenState extends State<SignInScreen> {
           ),
           onPressed: () {
             // Aksi ketika tombol kembali ditekan
-            // Misalnya: Navigator.of(context).pop();
           },
         ),
         title: const Text(
@@ -100,7 +100,7 @@ class _SignInScreenState extends State<SignInScreen> {
                   ),
                   focusedBorder: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(12),
-                    borderSide: BorderSide(color: Color(0xFF1A237E)),
+                    borderSide: const BorderSide(color: Color(0xFF1A237E)),
                   ),
                 ),
               ),
@@ -136,7 +136,7 @@ class _SignInScreenState extends State<SignInScreen> {
                   ),
                   focusedBorder: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(12),
-                    borderSide: BorderSide(color: Color(0xFF1A237E)),
+                    borderSide: const BorderSide(color: Color(0xFF1A237E)),
                   ),
                   suffixIcon: IconButton(
                     icon: Icon(
@@ -204,7 +204,7 @@ class _SignInScreenState extends State<SignInScreen> {
                       borderRadius: BorderRadius.circular(12),
                     ),
                     elevation: 5,
-                    shadowColor: Color(0xFF1A237E).withOpacity(0.4),
+                    shadowColor: const Color(0xFF1A237E).withOpacity(0.4),
                   ),
                   child: const Text(
                     'Sign In',
@@ -226,19 +226,23 @@ class _SignInScreenState extends State<SignInScreen> {
                     style: TextStyle(color: Colors.grey[600], fontSize: 14),
                   ),
                   GestureDetector(
-                    // vvv--- 2. UBAH BAGIAN INI ---vvv
                     onTap: () {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => const SignUpScreen()),
+                          builder: (context) => const SignUpScreen(),
+                        ),
                       );
                     },
-                    // ^^^---------------------------^^^
                     child: const Text(
                       'Sign Up',
                       style: TextStyle(
-                        color: Color(0xFF00C853), // Warna hijau
+                        color: Color.fromRGBO(
+                          20,
+                          31,
+                          97,
+                          1,
+                        ), // <-- KODE WARNA INI JUGA DIPERBAIKI
                         fontWeight: FontWeight.bold,
                         fontSize: 14,
                       ),
